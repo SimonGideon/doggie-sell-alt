@@ -1,3 +1,4 @@
+// config
 $primary-color: #227272;
 $secondary-color: #ff652f;
 
@@ -7,9 +8,22 @@ $secondary-color: #ff652f;
     padding: 0;
 }
 
+@mixin transition-ease {
+    transition: all 0.5 ease-in-out;    
+}
+
+@function set-text-color ($color){
+    @if (lightness($color) > 40%){
+        @return #000;
+        } @else {
+            @return #ffff;
+        }
+}
+
+// main
 body {
     background: $primary-color;
-    color: #ffff;
+    color: set-text-color($primary-color);
     height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1;
@@ -19,7 +33,7 @@ h1, h2, h3 {
 }
 
 a {
-    color: #ffff;
+    color: set-text-color($primary-color);
     text-decoration: none;
 }
 
@@ -40,6 +54,7 @@ main {
 
         a {
             padding: 0.4rem;
+            @include transition-ease;
 
             &:hover {
                 color: $secondary-color;
@@ -52,4 +67,37 @@ footer {
     font-size: 1rem;
     position: fixed;
     bottom: 0.4rem;
+    right: 1rem;
+    text-align: right;
+    padding: 1;
+    color: set-text-color($primary);
+
+}
+
+.home {
+    height: 100%;
+    padding-top: 40vh;
+    overflow: hidden;
+    align-items: center;
+    text-align: center;
+    background: 
+        linear-gradient( 
+            to right,
+            rgba($primary-color, 0.9),
+            rgba($primary-color, 0.3)
+        ),
+        url(../img/model-1.jpg) center top;
+    background-size: cover;
+
+    &_name {
+        font-size: 5rem;
+        padding-bottom: 1rem;
+        margin-top: 1rem;
+        border-bottom: 2px solid set-text-color($primary-color);
+
+        &--last {
+            color: $secondary-color;
+            font-weight: 700;
+        }
+    }
 }

@@ -38,6 +38,7 @@ main .social-icons {
 }
 main .social-icons a {
   padding: 0.4rem;
+  transition: all 0.5 ease-in-out;
 }
 main .social-icons a:hover {
   color: #ff652f;
@@ -47,4 +48,28 @@ footer {
   font-size: 1rem;
   position: fixed;
   bottom: 0.4rem;
+  right: 1rem;
+  text-align: right;
+  padding: 1;
+  color: white;
+}
+
+.home {
+  height: 100%;
+  padding-top: 40vh;
+  overflow: hidden;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to right, rgba(34, 114, 114, 0.9), rgba(34, 114, 114, 0.3)), url(../img/model-1.jpg) center top;
+  background-size: cover;
+}
+.home_name {
+  font-size: 5rem;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  border-bottom: 2px solid white;
+}
+.home_name--last {
+  color: #ff652f;
+  font-weight: 700;
 }/*# sourceMappingURL=styles.css.map */
