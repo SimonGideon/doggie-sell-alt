@@ -3,188 +3,188 @@ $primary-color: #227272;
 $secondary-color: #ff652f;
 
 * {
-    box-sizing: 0;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 @mixin transition-ease {
-    transition: all 0.5 ease-in-out;    
+  transition: all 0.5 ease-in-out;
 }
 
-@function set-text-color ($color){
-    @if (lightness($color) > 40%){
-        @return #000;
-        } @else {
-            @return #ffff;
-        }
+@function set-text-color($color) {
+  @if (lightness($color) > 40%) {
+    @return #000;
+  }
+  @else {
+    @return #ffff;
+  }
 }
 
 // main
 body {
-    background: $primary-color;
-    color: set-text-color($primary-color);
-    height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1;
+  background: $primary-color;
+  color: set-text-color($primary-color);
+  height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1;
 }
-h1, h2, h3 {
-    font-weight: 400;
+h1,
+h2,
+h3 {
+  font-weight: 400;
 }
 
 a {
-    color: set-text-color($primary-color);
-    text-decoration: none;
+  color: set-text-color($primary-color);
+  text-decoration: none;
 }
 
 header {
-    position: fixed;
-    z-index: 2;
-    width: 100%;
-    padding: 1 rem;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  padding: 1 rem;
 }
 
 main {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 
-    .social-icons {
-        position: fixed;
-        bottom: 1rem;
+  .social-icons {
+    position: fixed;
+    bottom: 1rem;
 
-        a {
-            padding: 0.4rem;
-            @include transition-ease;
+    a {
+      padding: 0.4rem;
+      @include transition-ease;
 
-            &:hover {
-                color: $secondary-color;
-            }
-        }
+      &:hover {
+        color: $secondary-color;
+      }
     }
+  }
 }
 
 footer {
-    font-size: 1rem;
-    position: fixed;
-    bottom: 0.4rem;
-    right: 1rem;
-    text-align: right;
-    padding: 1;
-    color: set-text-color($primary-color);
-
+  font-size: 1rem;
+  position: fixed;
+  bottom: 0.4rem;
+  right: 1rem;
+  text-align: right;
+  padding: 1;
+  color: set-text-color($primary-color);
 }
 
 .home {
-    height: 100%;
-    padding-top: 40vh;
-    overflow: hidden;
-    align-items: center;
-    text-align: center;
-    background: 
-        linear-gradient( 
-            to right,
-            rgba($primary-color, 0.9),
-            rgba($primary-color, 0.3)
-        ),
-        url(../img/model-1.jpg) center top;
-    background-size: cover;
+  height: 100%;
+  padding-top: 40vh;
+  overflow: hidden;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(
+      to right,
+      rgba($primary-color, 0.9),
+      rgba($primary-color, 0.3)
+    ),
+    url(../img/model-1.jpg) center top;
+  background-size: cover;
 
-    &_name {
-        font-size: 5rem;
-        padding-bottom: 1rem;
-        margin-top: 1rem;
-        border-bottom: 2px solid set-text-color($primary-color);
+  &_name {
+    font-size: 5rem;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+    border-bottom: 2px solid set-text-color($primary-color);
 
-        &--last {
-            color: $secondary-color;
-            font-weight: 700;
-        }
+    &--last {
+      color: $secondary-color;
+      font-weight: 700;
     }
+  }
 }
-
 
 // menu
 .menu-btn {
+  position: absolute;
+  z-index: 1;
+  right: 1rem;
+  top: 1rem;
+  height: 20px;
+  width: 28px;
+  cursor: pointer;
+  @include transition-ease;
+  &_burger {
     position: absolute;
-    z-index: 1;
-    right: 1rem;
-    top: 1rem;
-    height: 20px;
+    right: 0;
+    top: 0.5rem;
     width: 28px;
-    cursor: pointer;
+    height: 3px;
+    background: set-text-color($primary-color);
     @include transition-ease;
-    &_burger {
-        position: absolute;
-        right: 0;
-        top: 0.5rem;
-        width: 28px;
-        height: 3px;
-        background: set-text-color($primary-color);
-        @include transition-ease;
 
-        &::before {
-            content: '';
-            position: absolute;
-            top: -8px;
-            width: 28px;
-            height: 3px;
-            background: set-text-color($primary-color);
-            @include transition-ease;
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            top: 8px;
-            width: 20px;
-            height: 3px;
-            background: set-text-color($primary-color);
-            @include transition-ease;
-        }
-
-        &.open {
-            transform: rotate(720deg);
-            background: transparent;
-
-            &::before {
-                transform: rotate(45deg) translate(5px, 8px);
-            }
-
-            &::after {
-                width: 28px;
-                transform: rotate(-45deg) translate(3px, -7px);
-            }
-        }
+    &::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      width: 28px;
+      height: 3px;
+      background: set-text-color($primary-color);
+      @include transition-ease;
     }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      width: 20px;
+      height: 3px;
+      background: set-text-color($primary-color);
+      @include transition-ease;
+    }
+
+    &.open {
+      transform: rotate(720deg);
+      background: transparent;
+
+      &::before {
+        transform: rotate(45deg) translate(5px, 8px);
+      }
+
+      &::after {
+        width: 28px;
+        transform: rotate(-45deg) translate(3px, -7px);
+      }
+    }
+  }
 }
 
 // menu
 .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vh;
-    opacity: 0.98;
-    visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vh;
+  opacity: 0.98;
+  visibility: hidden;
+
+  &.open {
+    visibility: visible;
+  }
+
+  .menu-nav {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: $primary-color;
+    list-style: none;
+    padding-right: 1rem;
+    transform: translateY(-100%);
+    @include transition-ease;
 
     &.open {
-        visibility: visible;
+      transform: translateY(0);
     }
-
-    .menu-nav {
-        display: flex;
-        flex-flow: column wrap;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        background: $primary-color;
-        list-style: none;
-        padding-right: 1rem;
-        transform: translateY(-100%);
-        @include transition-ease;
-
-        &.open {
-            transform: translateY(0);
-        }
-    }
+  }
 }
